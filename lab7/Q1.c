@@ -61,9 +61,7 @@ void Lab7_parse_declarations(Q7_program_t* program)
         Lab7_parse_identifier_list(program);
 
         if (program->source[program->index] == ';')
-        {
             Lab7_parse_declarations(program);
-        }
 
         else
             Lab7_invalid_state();

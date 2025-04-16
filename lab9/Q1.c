@@ -7,16 +7,17 @@
 void Lab9_parse_assign_statement(Q9_program_t* program)
 {
     if (
-        program->source[program->index] == 'l' &&
-        program->source[program->index + 1] == 'e' &&
-        program->source[program->index + 2] == 't'
-    )
-        program->index += 3;
-
-    else if (
-        program->source[program->index] == 'v' &&
-        program->source[program->index + 1] == 'a' &&
-        program->source[program->index + 2] == 'r'
+        (
+            program->source[program->index] == 'l' &&
+            program->source[program->index + 1] == 'e' &&
+            program->source[program->index + 2] == 't'
+        )
+        ||
+        (
+            program->source[program->index] == 'v' &&
+            program->source[program->index + 1] == 'a' &&
+            program->source[program->index + 2] == 'r'
+        )
     )
         program->index += 3;
 
@@ -204,7 +205,8 @@ void Lab9_parse_for_statement(Q9_program_t* program)
             else
             {
                 printf(
-                    "Expected ') {'. Got: %c%c%c.\n", program->source[program->index], program->source[program->index + 1],
+                    "Expected ') {'. Got: %c%c%c.\n", program->source[program->index],
+                    program->source[program->index + 1],
                     program->source[program->index + 2]
                 );
                 exit(EXIT_FAILURE);
